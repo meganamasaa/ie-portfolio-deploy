@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Story - Megan Amasa, I&E Certificate</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="password-gate">
+  <h2>Megan Amasa</h2>
+  <p>Enter the password to view this portfolio.</p>
+  <form id="gate-form">
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" required>
+    <button type="submit">Enter</button>
+    <span id="gate-error">Incorrect password, try again.</span>
+  </form>
+</div>
+<script>
+(function(){
+  var GATE_PASSWORD = "Megan_IE";
+  var gate = document.getElementById('password-gate');
+  if (sessionStorage.getItem('ie_portfolio_unlocked') === 'true') {
+    gate.style.display = 'none';
+  }
+  document.getElementById('gate-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = document.getElementById('gate-input').value;
+    if (val === GATE_PASSWORD) {
+      sessionStorage.setItem('ie_portfolio_unlocked', 'true');
+      gate.style.display = 'none';
+    } else {
+      document.getElementById('gate-error').style.display = 'inline-block';
+    }
+  });
+})();
+</script>
+
+<nav class="site-nav">
+  <a class="mark" href="index.html">Megan Amasa</a>
+  <ul>
+    <li><a href="index.html" class="active">My Story</a></li>
+    <li><a href="coursework.html">Coursework</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="artifacts.html">Artifacts</a></li>
+  </ul>
+</nav>
+
+<aside class="margin-notes" aria-hidden="true">
+  <p class="note">I always want to be at the front of what's changing the world, and technology has always felt like that medium for me.</p>
+  <p class="note">I'm drawn to startups because I feel like they exemplify the true aspects of entrepreneurship: the grittiness, the ability to react to situations, the new thinking, and constant pivoting.</p>
+</aside>
+
+<main>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-photo-frame">
+        <img src="images/chapel-headshot.jpeg" alt="Megan Amasa in front of Duke Chapel">
+      </div>
+      <div class="hero-text">
+        <h1 class="page-name">Megan Amasa</h1>
+        <p class="hero-location">
+          <svg viewBox="0 0 24 30" aria-hidden="true">
+            <path d="M12 2 C6 2 2 6.5 2 12 C2 20 12 28 12 28 C12 28 22 20 22 12 C22 6.5 18 2 12 2 Z"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Boulder, Colorado
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Why Duke?</h2>
+    <p>What drew me to Duke was the type of people who also attended this university. Students who valued both the quantitative and qualitative sides, not only of learning but of life. I loved the balance Duke struck between technically rigorous coursework and learning how to communicate and operate within our world. The community at Duke has been one of the most important factors in my learning and development as an individual. I've grown so much from the people around me and the ideas and perspectives they've brought to the table. I'm constantly challenged and pushed by the people around me, which has made me not only a better student but a stronger candidate entering the world.</p>
+  </section>
+
+  <section class="block">
+    <h2>Why Computer Science</h2>
+    <p>My major is Computer Science, and I selected it because, similarly to why I chose Duke, I found that computer science really helped me make a real impact on the world. I've always been very entrepreneurial and innovative, and computer science was the best way to actually take my ideas and put them into action, to code or build out a product idea I've had. It's also a major that fits the world we're adapting to, since technology is at the forefront of what's boosting our economy and growing our human capability and efficiency. I always want to be at the front of what's changing the world, and technology has always felt like that medium for me.</p>
+  </section>
+
+  <section class="block">
+    <h2>Long-Term Plans</h2>
+    <p>My coursework in I&E fits into my long-term plans because it's taken the technical understanding I built in my computer science classes and taught me how to apply it in a real business setting. Learning about other businesses and startups, and the explicit aspects of building a company like raising funding and finding investors, has been important to my entrepreneurial mindset in a way a purely quantitative STEM major couldn't offer.</p>
+  </section>
+
+  <section class="block">
+    <h2>Current Ventures</h2>
+    <p>The best kind of ventures I've found entrepreneurially have been working at startups over all of my summers and throughout the school year. That's helped me gain a real understanding of what a startup looks like and the kinds of people who succeed there. I use different projects I've worked on internally within these startups as my own personal ventures, while still having a structure and foundation to my ideas and being able to learn from the mentors around me. I'm also always coding or building personal projects that I think of, working on them week by week.</p>
+  </section>
+
+  <section class="block">
+    <h2>Experience</h2>
+    <p>All of my past internships have been strongly related to entrepreneurship, across a wide range of company sizes, from startups as small as 15 employees up to some of the largest startups at billion dollar valuations. Working with this variety of companies and seeing how different stages of startups operate has helped me understand what aspects of startups I like and where I fit into the startup and entrepreneurial world. I'm drawn to startups because I feel like they exemplify the true aspects of entrepreneurship: the grittiness, the ability to react to situations, the new thinking, and constant pivoting. That's how I personally define entrepreneurship, and startups have been the best way for me to dive into it.</p>
+  </section>
+
+  <section class="block">
+    <h2>Impact</h2>
+    <p>I think the impact I hope to have on the world is to do something that aligns with myself, my beliefs, my values, an actual product I feel deeply aligned to that I can use to change the world around me. I really value doing things that are true to myself, and I hope the impact I have aligns strongly with that. I hope to do something that aligns with people and with an intention larger than making money, consumerism, or capitalism, finding the balance between building an amazing product and actually impacting people positively. I feel that oftentimes with large companies and corporations, the catch 22 is that they can harm the community around them. I hope to strike the balance where I can build a product that's not only successful but also positively impactful.</p>
+  </section>
+</main>
+
+<footer>
+  <span>Megan Amasa, I&E Certificate Portfolio</span>
+</footer>
+
+</body>
+</html>

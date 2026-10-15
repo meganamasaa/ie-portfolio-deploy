@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coursework - Megan Amasa, I&E Certificate</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="password-gate">
+  <h2>Megan Amasa</h2>
+  <p>Enter the password to view this portfolio.</p>
+  <form id="gate-form">
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" required>
+    <button type="submit">Enter</button>
+    <span id="gate-error">Incorrect password, try again.</span>
+  </form>
+</div>
+<script>
+(function(){
+  var GATE_PASSWORD = "Megan_IE";
+  var gate = document.getElementById('password-gate');
+  if (sessionStorage.getItem('ie_portfolio_unlocked') === 'true') {
+    gate.style.display = 'none';
+  }
+  document.getElementById('gate-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = document.getElementById('gate-input').value;
+    if (val === GATE_PASSWORD) {
+      sessionStorage.setItem('ie_portfolio_unlocked', 'true');
+      gate.style.display = 'none';
+    } else {
+      document.getElementById('gate-error').style.display = 'inline-block';
+    }
+  });
+})();
+</script>
+
+<nav class="site-nav">
+  <a class="mark" href="index.html">Megan Amasa</a>
+  <ul>
+    <li><a href="index.html">My Story</a></li>
+    <li><a href="coursework.html" class="active">Coursework</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="artifacts.html">Artifacts</a></li>
+  </ul>
+</nav>
+
+<aside class="margin-notes" aria-hidden="true">
+  <p class="note">My hope was to use I&E as a bridge connecting the more technical aspect of computer science with the more personal aspect of understanding a user's experience.</p>
+  <p class="note">Being able to build a multidimensional perspective on the same ideas within entrepreneurship and computer science was incredibly valuable.</p>
+</aside>
+
+<main>
+  <section class="masthead">
+    <p class="masthead-row">I&E 283, Product Management <span class="tag"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L2 9 L12 14 L22 9 Z"/><path d="M6 11.5 V17 C6 18.5 9 20 12 20 C15 20 18 18.5 18 17 V11.5"/><path d="M22 9 V15"/></svg></span>Gateway Elective</span></p>
+    <p class="masthead-row">CS 240, Race, Gender, Class &amp; Computing <span class="tag"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L2 9 L12 14 L22 9 Z"/><path d="M6 11.5 V17 C6 18.5 9 20 12 20 C15 20 18 18.5 18 17 V11.5"/><path d="M22 9 V15"/></svg></span>Elective, Spring 2026</span></p>
+    <p class="masthead-row">I&E Keystone <span class="tag"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L2 9 L12 14 L22 9 Z"/><path d="M6 11.5 V17 C6 18.5 9 20 12 20 C15 20 18 18.5 18 17 V11.5"/><path d="M22 9 V15"/></svg></span>Keystone</span></p>
+  </section>
+
+  <div class="duality-rule"><span class="r"></span><span class="c"></span></div>
+
+  <section class="block">
+    <h2>Why These Courses</h2>
+    <p>My gateway elective was I&E 283, Product Management. My elective was CS 240, Race, Gender, Class, &amp; Computing, taken in the spring of 2026. I picked these courses because they align with my beliefs and vision for myself.</p>
+  </section>
+
+  <section class="block">
+    <h2>Biggest Takeaways</h2>
+    <p>Product Management helped me align my mindset around product building and helped me learn about career options where I can use and nurture that mindset. CS 240 taught me the human side behind computer engineering, learning how our products affect end users and the impact that goes beyond the immediate effect.</p>
+    <p>From the Keystone, I learned how to take all of these understandings and align them with actual experiences in the business world. Taking the learnings and understanding I have of myself and the business scope, and aligning them to real world events and business cases, was valuable to see the explicit side of business, that isn't just about a good product or good idea but the minute aspects that differentiate a good product from a successful one.</p>
+  </section>
+
+  <section class="block">
+    <h2>Connections Across the Certificate</h2>
+    <p>I was able to blend a computer science perspective with actual product and customer empathy across all of my courses. They inform my certificate goals because my hope was to use I&E as a bridge connecting the more technical aspect of computer science with the more personal aspect of understanding a user's experience. The courses I took, specifically within I&E, were really good at building that bridge for me.</p>
+    <p>I also found that there were a lot of aspects, thematically, addressed in both courses in very different ways. Being able to build a multidimensional perspective on the same ideas within entrepreneurship and computer science was incredibly valuable.</p>
+  </section>
+</main>
+
+<footer>
+  <span>Megan Amasa, I&E Certificate Portfolio</span>
+</footer>
+
+</body>
+</html>

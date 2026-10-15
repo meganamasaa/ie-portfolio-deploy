@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiences - Megan Amasa, I&E Certificate</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="password-gate">
+  <h2>Megan Amasa</h2>
+  <p>Enter the password to view this portfolio.</p>
+  <form id="gate-form">
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" required>
+    <button type="submit">Enter</button>
+    <span id="gate-error">Incorrect password, try again.</span>
+  </form>
+</div>
+<script>
+(function(){
+  var GATE_PASSWORD = "Megan_IE";
+  var gate = document.getElementById('password-gate');
+  if (sessionStorage.getItem('ie_portfolio_unlocked') === 'true') {
+    gate.style.display = 'none';
+  }
+  document.getElementById('gate-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = document.getElementById('gate-input').value;
+    if (val === GATE_PASSWORD) {
+      sessionStorage.setItem('ie_portfolio_unlocked', 'true');
+      gate.style.display = 'none';
+    } else {
+      document.getElementById('gate-error').style.display = 'inline-block';
+    }
+  });
+})();
+</script>
+
+<nav class="site-nav">
+  <a class="mark" href="index.html">Megan Amasa</a>
+  <ul>
+    <li><a href="index.html">My Story</a></li>
+    <li><a href="coursework.html">Coursework</a></li>
+    <li><a href="experiences.html" class="active">Experiences</a></li>
+    <li><a href="artifacts.html">Artifacts</a></li>
+  </ul>
+</nav>
+
+<aside class="margin-notes" aria-hidden="true">
+  <p class="note">Even with a great idea or a great technical build, you still have to satisfy the people sitting at the table.</p>
+  <p class="note">I learned how to work with complex people with a mix of communication styles.</p>
+</aside>
+
+<main>
+  <article>
+    <section class="block">
+      <h2>Fora Travel</h2>
+      <h3>Description</h3>
+      <p>The nature of this experience was an internship at Fora Travel, where I was building out their entire vertical expansion into the college travel market. I was working as a technical product manager intern, forefronting the campaign while also building the technical side, the marketing side, and the growth side, learning to work across all aspects of the company.</p>
+      <p>I worked with this startup in New York City over the course of a summer. My responsibilities included hypothesizing the issue, conducting user research on what I thought the problem could be, diving into users through interviews and surveys, dissecting data points, and developing a solution. Through developing that solution, I had to learn how to market it, reach audiences, and actually find impact.</p>
+      <p>I chose to pursue this experience because I thought it was an amazing opportunity to try something I loved within a well built organization. Fora has an incredible foundation and team behind a well scaled product. Being able to develop my own venture within their silo was valuable, since I had the freedom to explore the ideas and opportunities I saw fit, while also having strong mentorship from the company and access to their resources. It was an experience where I really understood the aspects of development and entrepreneurship that you don't know until you're actually working on something hands on.</p>
+    </section>
+
+    <section class="block">
+      <h3>Reflection</h3>
+      <p>The innovative ideas I generated were a rendition of a Fora product specific to a college student, using their language, their ideas, their experiences, and understanding how to adjust a product approach to a new user audience. I had to build new campaigns, new product facing UI, and generally find new ways to create a new consumer connection.</p>
+      <p>A specific time I failed was when I moved forward with a build of my rendition of the new campaign website and showed it to our marketing team. They axed most of what I had built because it didn't align with the company's general aesthetic and the new direction they wanted for how the product looked to consumers. This was hard, since I'd put in so much work and effort, and then it was shut down quickly. What I learned was to not take that kind of criticism personally, since it had more to do with aligning with the company than with my own personal ideas. An idea can still be good without being the actual solution that's chosen. In the moment I took the criticism personally and tried to push my idea through. On reflection, I realized it had less to do with me and more to do with the business as a whole. I'd always thought of a business as a reflection of the team working on the product, and I had to learn how consumers perceive the brand, and how that's often more important.</p>
+      <p>The most important thing I learned from this experience was the actual difficulty of balancing multiple stakeholders and perspectives. Since I was working across teams, I had to find a way to satisfy the engineers, the marketers, the product managers, and ultimately the C suite. Figuring that out on my own was complicated, but an incredible learning experience, since there was a lot of pressure. I had to work hard to understand the people around me, and I learned, again, the interpersonal side of entrepreneurship and innovation. Even with a great idea or a great technical build, you still have to satisfy the people sitting at the table.</p>
+    </section>
+  </article>
+
+  <div class="duality-rule"><span class="c"></span><span class="r"></span></div>
+
+  <article>
+    <section class="block">
+      <h2>Co-Director of Enterprise Entertainment | Campus Enterprises</h2>
+      <h3>Description</h3>
+      <p>The nature of this experience was working as co-director of Enterprise Entertainment, where I managed our relationships with external vendors and internal student organizations.</p>
+      <p>I worked with Campus Enterprises, Duke's largest and oldest student run business, which brings in over $1 million in profit and, year by year, hundreds of thousands of dollars in revenue.</p>
+      <p>I led Enterprise Entertainment. My responsibilities were contracting external vendors and bringing them into our client portfolio to use as resources for student run events. I acted as the liaison between these vendors, our company, and different student organizations.</p>
+      <p>I chose to pursue this experience because it felt like the most hands on way to understand interacting with a real business that was essentially entirely my own, where real money, real employees, and real vendors were all working with us. It wasn't just a practice experience of doing business.</p>
+    </section>
+
+    <section class="block">
+      <h3>Reflection</h3>
+      <p>The most innovative idea I came up with was changing our business model from finding vendors on a case by case basis to actually contracting them into our company, guaranteeing them a set number of events for lower pricing or better deals. That addressed our problem of inconsistent revenue, since our revenue had been scattered based on whatever events we brought in. Having these contracts meant we were working with a set amount of revenue every semester, which made it easier to find new events with the revenue we had, since we could put more toward our marketing budgets, get good deals for students, and have a more attractive sell.</p>
+      <p>A specific time I failed was when I planned an event with a vendor that didn't meet the headcount we were expecting, due to rain and other things we couldn't control. I had to learn how to communicate with people I wasn't used to communicating with. It was easy for me to know how to talk to fellow students or executives in my own organization, but learning to communicate with real business owners meant I had to adjust, put myself in their shoes, and learn from that. For me, this is an extracurricular I'm working on at school to build my business experience, but for them, this is their entire livelihood. I had to find where I was willing to make a sacrifice when things mattered more to these vendors than they did to me.</p>
+      <p>The most important thing I learned in this experience was how to communicate with my internal team. I've always thought of myself as someone who works well in group projects. In high school, whenever I was placed in a group project, I was usually paired with people who didn't want to do much of the work and liked to be led, so I'd take the position of leader. Working at Campus Enterprises, alongside four other leaders with strong opinions, mindsets, and ideas, finding how to balance all of our perspectives and communicate effectively with each other was what I learned the most from. I learned how to work with complex people with a mix of communication styles, and it became a reflection on how I like to work with people and how I can get better at working within my teams.</p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <span>Megan Amasa, I&E Certificate Portfolio</span>
+</footer>
+
+</body>
+</html>

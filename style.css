@@ -1,0 +1,630 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #FFFFFF;
+  --ink: #0D0D0D;
+  --muted: #6E6E6E;
+  --line: #E3E3E3;
+  --accent: #00539B;
+  --max: 640px;
+  --spine: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding-left: var(--spine);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- The spine ---------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--spine);
+  height: 100%;
+  background: var(--accent);
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  :root { --spine: 5px; }
+  body::before { height: var(--spine); width: 100%; }
+  body { padding-left: 0; padding-top: var(--spine); }
+}
+
+/* ---------- Nav ---------- */
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 56px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.site-nav .mark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible { color: var(--ink); }
+
+.site-nav a.active {
+  color: var(--ink);
+  border-bottom: 2px solid var(--accent);
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  padding: 92px 56px 36px;
+  max-width: 900px;
+  overflow: hidden;
+  animation: rise 0.6s ease-out;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.hero-photo-frame {
+  flex-shrink: 0;
+  width: 190px;
+  height: 250px;
+  padding: 3px;
+  background: var(--accent);
+}
+
+.hero-photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hero-text { flex: 1; min-width: 0; }
+
+.page-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  line-height: 1.02;
+  margin: 0 0 10px;
+}
+
+.hero-tag {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+.hero-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.hero-location svg { width: 12px; height: 15px; flex-shrink: 0; }
+.hero-location svg path { fill: var(--accent); }
+.hero-location svg circle { fill: var(--paper); }
+
+.hero-text .lede {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1.9vw, 1.55rem);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  margin: 0;
+  max-width: 480px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+  .hero-grid { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .hero-photo-frame { width: 150px; height: 195px; }
+}
+
+/* ---------- Chapter watermark ---------- */
+
+.chapter-numeral {
+  position: absolute;
+  top: -0.3em;
+  right: 2%;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(7rem, 16vw, 13rem);
+  color: var(--ink);
+  opacity: 0.05;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@media (max-width: 640px) { .chapter-numeral { display: none; } }
+
+/* ---------- Duality rule (short section break) ---------- */
+
+.duality-rule {
+  display: flex;
+  height: 3px;
+  width: 96px;
+  margin: 8px 56px 0;
+  background: var(--accent);
+}
+
+.duality-rule span { display: none; }
+
+/* ---------- Sections ---------- */
+
+main { padding-bottom: 88px; }
+
+section.block {
+  max-width: var(--max);
+  margin: 52px 56px 0;
+}
+
+section.block h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 1.4rem;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+section.block h3 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+section.block p {
+  margin: 0 0 17px;
+  font-size: 1.03rem;
+}
+
+section.block p:last-child { margin-bottom: 0; }
+
+article { display: block; }
+article + article { margin-top: 8px; }
+
+/* ---------- Masthead (coursework / experiences pages) ---------- */
+
+.masthead {
+  position: relative;
+  padding: 64px 56px 68px;
+  max-width: 960px;
+  overflow: hidden;
+  animation: rise 0.6s ease-out;
+}
+
+.masthead .masthead-row {
+  position: relative;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.masthead .masthead-row .tag {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.58em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.masthead .tag .icon { display: inline-flex; flex-shrink: 0; }
+.masthead .tag .icon svg { width: 17px; height: 17px; color: var(--accent); }
+
+/* ---------- Margin notes (wide viewports only) ---------- */
+
+.margin-notes { display: none; }
+
+@media (min-width: 1180px) {
+  .margin-notes {
+    display: block;
+    position: fixed;
+    top: 170px;
+    right: 4.5%;
+    width: 240px;
+    z-index: 5;
+  }
+}
+
+.margin-notes .note {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+  padding-left: 16px;
+  margin: 0 0 44px;
+  border-left: 2px solid var(--accent);
+}
+
+/* ---------- Callout (e.g. hypothesis statement) ---------- */
+
+.callout {
+  max-width: var(--max);
+  margin: 24px 0 0;
+  padding: 20px 22px;
+  border-left: 3px solid var(--accent);
+  background: #FAFAFA;
+}
+
+.callout .callout-label {
+  display: block;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.callout p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1.08rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Definition list (e.g. product requirements) ---------- */
+
+.definition-list {
+  max-width: var(--max);
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.definition-list > div {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.definition-list dt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.definition-list dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* ---------- Process flow (e.g. Research -> Build -> Launch) ---------- */
+
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 0;
+}
+
+.flow .step {
+  border: 1px solid var(--ink);
+  padding: 7px 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.flow .arrow {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Link button ---------- */
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ink);
+  padding: 11px 20px;
+  margin-top: 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- Question list (e.g. discovery questions) ---------- */
+
+.q-list {
+  max-width: var(--max);
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.q-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.02rem;
+}
+
+.q-list li:first-child { border-top: 1px solid var(--line); }
+
+/* ---------- Project title (within an article) ---------- */
+
+.project-title,
+section.block h2.project-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 6px;
+  border: none;
+  padding: 0;
+  display: block;
+}
+
+.project-tagline {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+}
+
+/* ---------- Stats grid (e.g. results & scale) ---------- */
+
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 20px 0 0;
+}
+
+.stat { min-width: 110px; }
+
+.stat .stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat .stat-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ---------- Artifact accordion (Artifacts page) ---------- */
+
+.artifact { margin-bottom: 12px; }
+
+.artifact-toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 4px 0 14px;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+  color: var(--ink);
+}
+
+.artifact-toggle:hover { color: var(--accent); }
+
+.artifact-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.artifact-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.artifact-name { flex: 1; }
+
+.chevron {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.artifact-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+.artifact-overview { margin-top: 0; }
+
+.artifact-panel[hidden] { display: none; }
+
+/* ---------- Password gate ---------- */
+
+#password-gate {
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+#password-gate h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+#password-gate p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--muted);
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+
+#gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+#gate-form input[type="password"] {
+  padding: 12px 14px;
+  border: 1px solid var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+#gate-form input[type="password"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+#gate-form button {
+  padding: 12px 14px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+#gate-form button:hover { background: var(--accent); }
+
+#gate-error {
+  display: none;
+  color: #B00020;
+  font-size: 0.82rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 32px 56px;
+  border-top: 1px solid var(--ink);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .site-nav, .hero, footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  section.block, .masthead {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  .duality-rule { margin-left: 24px; }
+  footer { flex-direction: column; gap: 6px; }
+  .site-nav { flex-wrap: nowrap; }
+  .site-nav .mark { font-size: 0.92rem; white-space: nowrap; }
+  .site-nav ul { gap: 16px; }
+  .site-nav a { font-size: 0.82rem; }
+}
